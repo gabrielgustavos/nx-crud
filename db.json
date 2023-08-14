@@ -1,0 +1,9 @@
+{
+  "auth": [
+    {
+      "id": 1,
+      "login": "gabs",
+      "password": "123"
+    }
+  ]
+}

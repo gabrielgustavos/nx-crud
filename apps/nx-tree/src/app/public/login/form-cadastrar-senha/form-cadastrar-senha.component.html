@@ -1,0 +1,86 @@
+<div class="form-container fadeIn">
+  <div class="d-flex align-items-center justify-content-center">
+    <h1 class="title">
+      {{ emailEnviado ? 'Senha cadastrada com sucesso!' : 'Cadastro de Senha' }}
+    </h1>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center pt-5">
+    <img
+      *ngIf="emailEnviado"
+      src="assets/images/animations/check.gif"
+      alt="Animação de check"
+      class="check-gif"
+    />
+  </div>
+
+  <div class="form-instructions">
+    <p
+      [ngClass]="{ 'text-email-enviado': emailEnviado }"
+      class="font-poppins font-16 font-500 text-center cor-texto-medio"
+    >
+      {{
+        emailEnviado
+          ? 'Sua senha foi cadastrada com sucesso!'
+          : 'Cadastre sua senha de acesso ao sistema.'
+      }}
+    </p>
+    <p
+      *ngIf="emailEnviado"
+      class="font-poppins font-16 font-500 text-center cor-texto-medio"
+    >
+      Clique no botão abaixo para realizar o login na plataforma.'
+    </p>
+  </div>
+
+  <div class="form">
+    <nx-org-input
+      placeholder="Informe uma senha"
+      label="Senha"
+      [icone]="'fa-light fa-lock'"
+      *ngIf="!emailEnviado"
+    ></nx-org-input>
+    <nx-org-input
+      placeholder="Confirmar a senha"
+      label="Confirmação da Senha"
+      [icone]="'fa-light fa-lock'"
+      *ngIf="!emailEnviado"
+    ></nx-org-input>
+    <div class="d-flex flex-column">
+      <span
+        *ngIf="!emailEnviado"
+        class="font-poppins font-400 font-13 cor-texto-claro"
+      >
+        Redefinição de senha:
+      </span>
+      <span
+        *ngIf="!emailEnviado"
+        class="font-poppins font-400 font-13 cor-texto-claro"
+      >
+        Mínimo 6 caracteres, uma letra maiúscula, uma letra minúscula, um
+      </span>
+
+      <span
+        *ngIf="!emailEnviado"
+        class="font-poppins font-400 font-13 cor-texto-claro"
+      >
+        número e um caractere especial (exemplo @ # $)
+      </span>
+    </div>
+
+    <div class="btn-submit">
+      <nx-org-button
+        texto="Cadastrar senha"
+        *ngIf="!emailEnviado"
+        (click)="emailEnviado = true"
+      ></nx-org-button>
+
+      <nx-org-button
+        texto="Fazer login"
+        routerLink="../"
+        *ngIf="emailEnviado"
+        (click)="emailEnviado = true"
+      ></nx-org-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="form-container fadeIn">
+  <div class="d-flex align-items-center justify-content-center">
+    <h1 class="title">
+      {{ emailEnviado ? 'E-mail enviado com sucesso!' : 'Esqueci minha senha' }}
+    </h1>
+  </div>
+  <div class="d-flex align-items-center justify-content-center">
+    <img
+      *ngIf="emailEnviado"
+      src="assets/images/animations/check.gif"
+      alt="Animação de check"
+      class="check-gif"
+    />
+  </div>
+  <div class="form-instructions">
+    <p
+      [ngClass]="{ 'text-email-enviado': emailEnviado }"
+      class="font-poppins font-16 font-400 text-center cor-texto-medio"
+    >
+      {{
+        emailEnviado
+          ? 'Enviamos um link para redefinição de senha no seu e-mail. Siga as instruções para criar uma nova senha de acesso.'
+          : 'Informe seu usuário para resetar sua senha.'
+      }}
+    </p>
+  </div>
+
+  <div class="form">
+    <nx-org-input       *ngIf="!emailEnviado"
+    placeholder="Informe seu usuário"
+    label="Usuário"
+    [icone]="'fa-light fa-user'"></nx-org-input>
+
+    <div class="btn-submit">
+      <ng-container *ngIf="!emailEnviado">
+        <nx-org-button
+          texto="Enviar"
+          (click)="emailEnviado = true"
+        ></nx-org-button>
+        <p
+          class="font-poppins font-14 line-21 font-400 cor-texto-escuro text-center pt-4 cursor-pointer"
+          routerLink="../"
+        >
+          Voltar para o Login
+        </p>
+      </ng-container>
+      <ng-container *ngIf="emailEnviado">
+        <nx-org-button
+          routerLink="../redefinir-senha"
+          texto="Redefinir senha"
+        ></nx-org-button>
+      </ng-container>
+    </div>
+  </div>
+</div>

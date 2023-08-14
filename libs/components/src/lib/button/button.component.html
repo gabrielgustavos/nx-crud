@@ -1,0 +1,33 @@
+<div class="btn-custom" [ngClass]="{ active: isOpen }" (click)="onToogle()">
+  <button
+    [title]="title"
+    type="submit"
+    [disabled]="disabled"
+    [ngClass]="{
+      danger: btnDanger,
+      warning: btnWaring,
+      'w-100 justify-content-center': larguraMaxima,
+      'btn-outline-black': btnOutlineBlack,
+      'btn-outline-blue': btnOutlineBlue,
+      transparent: transparent
+    }"
+  >
+    <i
+      *ngIf="iconeEsquerda && icone"
+      class="{{ icone }}"
+      [ngClass]="{ 'ml-button': !onlyIcon }"
+    ></i>
+
+    {{ texto }}
+
+    <i
+      *ngIf="!iconeEsquerda && icone"
+      class="{{ icone }}"
+      [ngClass]="{ 'mr-button': !onlyIcon }"
+    ></i>
+  </button>
+
+  <ul class="drop-btn-content" *ngIf="dropButton">
+    <ng-content> </ng-content>
+  </ul>
+</div>

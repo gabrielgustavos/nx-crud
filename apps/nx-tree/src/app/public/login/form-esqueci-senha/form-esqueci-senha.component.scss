@@ -1,0 +1,27 @@
+@import 'apps/info-panel/src/assets/scss/utils/mixins';
+@import 'apps/info-panel/src/assets/scss/utils/variables';
+
+.form-instructions {
+  padding-top: 4.125rem;
+}
+
+.form {
+  position: relative;
+  @include flexColumn;
+  gap: 1rem;
+  margin: 0 auto;
+  padding-top: 4.5rem;
+
+  .btn-submit {
+    padding-top: 5rem;
+  }
+}
+
+.text-email-enviado {
+  width: 30rem;
+}
+
+.check-gif {
+  width: 10rem;
+  padding-top: 4rem;
+}

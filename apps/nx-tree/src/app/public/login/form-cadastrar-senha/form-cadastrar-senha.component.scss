@@ -1,0 +1,24 @@
+@import 'apps/info-panel/src/assets/scss/utils/mixins';
+@import 'apps/info-panel/src/assets/scss/utils/variables';
+
+.form-instructions {
+  @include flexColumnCenter;
+  gap: 0.5rem;
+  padding-top: 4.125rem;
+}
+
+.form {
+  @include flexColumn;
+  position: relative;
+  gap: 1rem;
+  margin: 0 auto;
+  padding-top: 4.5rem;
+
+  .btn-submit {
+    padding-top: 5rem;
+  }
+}
+
+.check-gif {
+  width: 10rem;
+}
