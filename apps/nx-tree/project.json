@@ -15,7 +15,7 @@
         "main": "apps/nx-tree/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/nx-tree/tsconfig.app.json",
-        "assets": ["apps/nx-tree/src/favicon.ico", "apps/nx-tree/src/assets"],
+        "assets": ["apps/nx-tree/src/assets"],
         "styles": ["apps/nx-tree/src/styles.scss"],
         "scripts": []
       },

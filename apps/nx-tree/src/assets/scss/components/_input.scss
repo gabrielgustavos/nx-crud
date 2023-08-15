@@ -1,0 +1,19 @@
+@import "../utils/variables";
+
+.invalid {
+  .form-group {
+
+    input,
+    textarea {
+      border-color: $red !important;
+    }
+  }
+
+  .ng-select-container {
+    border-color: $red !important;
+  }
+}
+
+textarea.textarea.ng-invalid.invalid {
+  border-color: $red !important;
+}

@@ -1,139 +1,42 @@
-<ng-container *ngIf="decimal && !textarea && !ngModel">
-  <div class="form-group position-relative" *ngIf="type !== 'file'">
-    <label
-    [for]="id" [ngClass]="{
-      required: required,
-      'input-small': small,
-      'float-label': floatLabel
-    }"
-    >{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
+<ng-container *ngIf="!decimal && !textarea && !ngModel">
+  <div class="form-group" *ngIf="type !== 'file'">
+    <label [for]="id"
+     [ngClass]="{ required: required, 'input-small': small }"
+      >{{ label }}
+      <i
+        *ngIf="recebeIcone"
+        class="{{ recebeIcone }} cursor-pointer"
+        tooltipPosition="top"
+      ></i
+    ></label>
     <div class="position-relative">
-      <input #input currencyMask [options]="options" type="tel" [formControl]="control" [required]="required"
-        [value]="value" [readonly]="disabled" [placeholder]="placeholder" [name]="id" [id]="id"
-        [autocomplete]="autocomplete" [ngClass]="{
+      <input
+        #input
+        [type]="type"
+        [min]="min"
+        [max]="max"
+        [formControl]="control"
+        [required]="required"
+        [mask]="recebeMask"
+        [showMaskTyped]="false"
+        [dropSpecialCharacters]="dropSpecialCharacters"
+        [value]="value"
+        [validation]="false"
+        [readonly]="disabled"
+        [placeholder]="placeholder"
+        [autocomplete]="autocomplete"
+        [ngClass]="{
           'text-uppercase': uppercase,
           'input-small': small,
-          pointer: cursorPointer,
-          'borda-cinza': bordaCinza,
-          'borda-azul': bordaAzul,
-          'placeholder-cinza': placeholderCinza,
-          'float': value
-        }" />
+          pointer: cursorPointer
+        }"
+        [minlength]="minlength"
+        [maxlength]="maxlength"
+        [name]="id"
+        [id]="id"
+      />
       <i (click)="clickIcon()" class=" {{ icone }} icone-senha"></i>
     </div>
   </div>
 </ng-container>
 
-<ng-container *ngIf="decimal && !textarea && ngModel">
-  <div class="form-group" *ngIf="type !== 'file'">
-    <label [for]="id" [ngClass]="{ required: required, 'input-small': small,  'float-label': floatLabel }">{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
-    <div class="position-relative">
-      <input #input currencyMask [options]="options" type="tel" [(ngModel)]="value" [autocomplete]="autocomplete"
-        [ngModelOptions]="{ standalone: true }" [required]="required" [value]="value" [readonly]="disabled"
-        [placeholder]="placeholder" [name]="id" [id]="id"  [ngClass]="{
-          'text-uppercase': uppercase,
-          'input-small': small,
-          pointer: cursorPointer,
-          'borda-cinza': bordaCinza,
-          'borda-azul': bordaAzul,
-          'placeholder-cinza': placeholderCinza,
-          'float': value
-        }" />
-      <i (click)="clickIcon()" class=" {{ icone }} icone-senha"></i>
-    </div>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="!decimal && !textarea && !ngModel && !address">
-  <div class="position-relative form-group" *ngIf="type !== 'file'">
-    <input #input [type]="type" placeholder="" [min]="min" [max]="max" [formControl]="control" [required]="required"
-      [mask]="recebeMask" [showMaskTyped]="false" [dropSpecialCharacters]="dropSpecialCharacters" [value]="value"
-      [validation]="false" [readonly]="disabled" [placeholder]="placeholder" [autocomplete]="autocomplete" [ngClass]="{
-        'text-uppercase': uppercase,
-        'input-small': small,
-        pointer: cursorPointer,
-        'borda-cinza': bordaCinza,
-        'borda-azul': bordaAzul,
-        'placeholder-cinza': placeholderCinza,
-        'float': value
-      }" [minlength]="minlength" [maxlength]="maxlength" [name]="id" [id]="id" (blur)="hasFloatLabel($event)"
-      (focus)="(hasFloatLabel)"/>
-    <label [for]="id" [ngClass]="{
-        required: required,
-        'input-small': small,
-        'float-label': floatLabel
-      }">{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
-    <i (click)="clickIcon()" class=" {{ icone }} icone-senha"></i>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="!decimal && !textarea && !ngModel && address">
-  <div class="position-relative form-group" *ngIf="type !== 'file'">
-    <input ngx-google-places-autocomplete #input [type]="type" placeholder="" [min]="min" [max]="max" [formControl]="control" [required]="required"
-      [mask]="recebeMask" [showMaskTyped]="false" [dropSpecialCharacters]="dropSpecialCharacters" [value]="value"
-      [validation]="false" [readonly]="disabled" [placeholder]="placeholder" [autocomplete]="autocomplete" [ngClass]="{
-        'text-uppercase': uppercase,
-        'input-small': small,
-        pointer: cursorPointer,
-        'borda-cinza': bordaCinza,
-        'borda-azul': bordaAzul,
-        'placeholder-cinza': placeholderCinza,
-        'float': value
-      }" [minlength]="minlength" [maxlength]="maxlength" [name]="id" [id]="id" (blur)="hasFloatLabel($event)"
-      (focus)="(hasFloatLabel)" [(ngModel)]="valorInicial" />
-    <label [for]="id" [ngClass]="{
-        required: required,
-        'input-small': small,
-        'float-label': floatLabel
-      }">{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
-    <i (click)="clickIcon()" class=" {{ icone }} icone-senha"></i>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="!decimal && !textarea && ngModel">
-  <div class="form-group" *ngIf="type !== 'file'">
-    <label [for]="id" [ngClass]="{ required: required, 'input-small': small,  'float-label': floatLabel }">{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
-    <div class="position-relative">
-      <input #input [showMaskTyped]="false" [dropSpecialCharacters]="dropSpecialCharacters" [type]="type"
-        [(ngModel)]="value" [ngModelOptions]="{ standalone: true }" [required]="required" [mask]="recebeMask"
-        [validation]="false" [readonly]="disabled" [placeholder]="placeholder"
-        [ngClass]="{ 'text-uppercase': uppercase, 'input-small': small }" [minlength]="minlength"
-        [maxlength]="maxlength" [name]="id" [id]="id" [autocomplete]="autocomplete" />
-      <i (click)="clickIcon()" class=" {{ icone }} icone-senha"></i>
-    </div>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="!decimal && textarea && !ngModel">
-  <div class="form-group">
-    <label [for]="id" [ngClass]="{ required: required }">{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
-    <div class="position-relative">
-      <textarea #input class="textarea w-100" name="" id="" rows="2" [required]="required" [placeholder]="placeholder"
-        [formControl]="control"></textarea>
-      <div class="group-icons-textarea" *ngIf="iconesTextArea">
-        <!-- <i (click)="clickIcon()" class=" fa-solid fa-at cursor-pointer"></i> -->
-        <i (click)="clickIcon()" class=" fa-solid fa-tag cursor-pointer"></i>
-        <i (click)="clickIcon()" class=" fa-solid fa-file-image cursor-pointer"></i>
-        <i (click)="clickIcon()" class=" fa-solid fa-flag cursor-pointer"></i>
-      </div>
-
-    </div>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="!decimal && textarea && ngModel">
-  <div class="form-group">
-    <label [for]="id" [ngClass]="{ required: required }">{{ label }}
-      <i *ngIf="recebeIcone" class="{{ recebeIcone }} cursor-pointer"></i></label>
-    <div class="position-relative">
-      <textarea #input class="textarea w-100" name="" id="" rows="2" [required]="required" [disabled]="disabled"
-        [placeholder]="placeholder" [(ngModel)]="value"></textarea>
-    </div>
-  </div>
-</ng-container>

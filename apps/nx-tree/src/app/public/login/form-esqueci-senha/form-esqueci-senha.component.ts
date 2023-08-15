@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-esqueci-senha.component.scss'],
 })
 export class FormEsqueciSenhaComponent implements OnInit {
-  emailEnviado = false;
   constructor() { }
 
   ngOnInit() { }

@@ -1,0 +1,41 @@
+@import 'base/main';
+@import 'utils/main';
+@import 'vendor/main';
+@import 'components/main';
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+// Aplicando fonte Mulish Regular para tags de TEXTO
+p,
+span,
+label,
+button,
+small,
+input,
+button,
+textarea,
+select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.cdk-table {
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (min-width: ($break-desktop-full-hd + 1)) {
+
+  html,
+  body {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: $break-desktop-hd) {
+
+  html,
+  body {
+    font-size: $size-14;
+  }
+}

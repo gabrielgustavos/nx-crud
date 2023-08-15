@@ -1,0 +1,93 @@
+@import 'apps/nx-tree/src/assets/scss/utils/variables';
+
+label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  font-weight: 400;
+  pointer-events: none;
+  padding-bottom: 5px;
+  z-index: 1;
+
+  &.input-small {
+    font-size: $size-11;
+  }
+}
+
+input,
+input[type='date'] {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8125rem;
+  border-radius: 6px;
+  width: 100%;
+  padding: 0.75rem 0.9375rem 0.75rem 0.9375rem;
+  z-index: 0;
+
+  box-sizing: border-box;
+
+  &::placeholder {}
+
+  &::-webkit-datetime-edit-fields-wrapper {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8125rem;
+  }
+
+  &:focus {
+    outline: none;
+
+    ~i {}
+  }
+
+  &:not(:placeholder-shown)~i {}
+}
+
+.position-relative {
+  position: relative;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+
+  appearance: textfield;
+}
+
+i {
+  cursor: pointer;
+}
+
+.icone-senha,
+.icone-user {
+  position: absolute;
+  right: 0.8125rem;
+  top: 1rem;
+}
+
+input[type='color' i] {
+  height: 5rem;
+  width: 5rem;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+input[type='color' i]::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
+}
+
+input[type='color' i] {
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: transparent;
+  }
+}

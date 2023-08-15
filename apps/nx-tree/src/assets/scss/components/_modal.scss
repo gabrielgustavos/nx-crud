@@ -1,0 +1,52 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../utils/animations";
+
+.overlay-backdrop {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.cdk-overlay-dark-backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-panel {
+  @include flex-col;
+  border-radius: 0.3rem;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.modal {
+  @include animate-to-top();
+  border-radius: $size-12;
+  box-shadow: 0px 0px 200px rgba(0, 0, 0, 0.35);
+
+  .header {
+    padding: $size-20 $size-24;
+    display: flex;
+    align-items: center;
+
+    .icon-close {
+      padding: $size-13 $size-15;
+      border-radius: 50%;
+      @include centralizar;
+      cursor: pointer;
+    }
+
+    .titulo {
+      font-size: $size-20;
+      margin: 0 $size-20;
+    }
+  }
+
+  .body {
+    padding: 1.5rem;
+  }
+
+  .footer {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

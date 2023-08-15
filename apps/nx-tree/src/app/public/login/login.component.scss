@@ -1,37 +1,12 @@
-@import 'apps/info-panel/src/assets/scss/utils/mixins';
-@import 'apps/info-panel/src/assets/scss/utils/variables';
+@import 'apps/nx-tree/src/assets/scss/utils/mixins';
 
 .grid-container {
   display: grid;
-  grid-template-columns: 0.95fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   height: 100%;
-
-  .left-grid {
-    background-color: $cor-texto-medio;
-    height: 100vh;
-
-    .logo-img {
-      position: absolute;
-      top: 2rem;
-      left: 3rem;
-    }
+  overflow: hidden;
   }
-}
 
-.ilustration-content {
-  @include flexColumnCenterCenterAround;
-  position: relative;
-  p {
-    position: absolute;
-    bottom: 1rem;
-  }
-}
-
-.ilustration-img {
+.left-grid {
   height: 100vh;
-  width: 100%;
-}
-
-.form {
-  @include centralizar;
 }
