@@ -1,0 +1,129 @@
+@import "apps/nx-tree/src/assets/scss/utils/variables";
+@import "apps/nx-tree/src/assets/scss/utils/mixins";
+
+button {
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: $blue;
+  padding: 0.907rem 0;
+  font-size: 0.8125rem;
+  color: $white;
+  width: 100%;
+
+  &:disabled {
+    cursor: not-allowed !important;
+  }
+
+  &.btn-outline-blue {
+    border: 1px solid $blue;
+    background-color: transparent;
+    color: $blue;
+    transition: all 300ms;
+  }
+
+  &.btn-outline-black {
+    border: 1px solid $black;
+    background-color: transparent;
+    color: $black;
+    transition: all 300ms;
+  }
+
+  &.btn-small {
+    padding: 0.1567rem;
+  }
+
+  &:not([disabled]):hover i {
+    opacity: 0.5;
+  }
+
+  &[disabled]:before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  i {
+    font-size: $size-16;
+    transition: 300ms all;
+
+    &.mr-button {
+      margin-left: 0.625rem;
+    }
+
+    &.ml-button {
+      margin-right: 0.625rem;
+    }
+  }
+}
+
+button.transparent {
+  background-color: transparent;
+  border: unset;
+}
+
+button.secondary {
+  border: 1px solid $black;
+  background-color: $white;
+  color: $black;
+}
+
+button.danger {
+  background-color: $red;
+  border: 1px solid $red;
+}
+
+button.warning {
+  background-color: $yellow;
+  border: 1px solid $yellow;
+}
+
+.btn-custom button {
+  @include centralizar;
+}
+
+.btn-custom button[disabled] {
+  opacity: 0.5;
+  cursor: unset;
+}
+
+.btn-custom.active .drop-btn-content {
+  display: block;
+}
+
+.drop-btn-content {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 5%), 0 4px 8px 0 rgb(0 0 0 / 5%);
+  background-color: $white;
+  width: 100%;
+  left: 0;
+  top: 45px;
+  position: absolute;
+  z-index: 100;
+  display: none;
+  animation: fadeIn 1s;
+  border-radius: $radius;
+}
+
+.drop-btn-content li {
+  display: block;
+  padding: $size-5 $size-15;
+  cursor: pointer;
+
+  &:first-child {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}

@@ -1,0 +1,79 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+
+.alert-wrapper {
+  padding: $size-10;
+  box-shadow: 0px $size-10 $size-20 $size-2 rgba(0, 0, 0, 0.25);
+  display: flex;
+  margin: $size-10;
+  border-radius: $radius;
+  width: 22em;
+  background-color: $white;
+
+
+  .alert-icon {
+    flex: 0 0 3em;
+    @include centralizar;
+    position: relative;
+
+    &.aviso .icon {
+      color: $yellow;
+    }
+
+    &.erro .icon {
+      color: $red;
+    }
+
+    &.sucesso .icon {
+      color: $green;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: $size-3;
+      border-radius: $radius;
+      left: 0;
+    }
+
+    &.sucesso:before {
+      background-color: $green;
+    }
+
+    &.aviso:before {
+      background-color: $yellow;
+    }
+
+    &.erro:before {
+      background-color: $red;
+    }
+
+    .icon {
+      font-size: $size-20;
+    }
+  }
+
+  .alert-desc {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .alert-title {
+      font-size: $size-15;
+    }
+
+    .alert-subtitle {
+      font-size: $size-14;
+    }
+  }
+
+  .alert-close {
+    flex: 0 0 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

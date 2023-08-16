@@ -8,5 +8,10 @@ export const appRoutes: Route[] = [
     loadChildren: () =>
       import('./public/public.module').then((x) => x.PublicModule),
   },
+  {
+    path: "",
+    loadChildren: () =>
+      import("./admin/admin.module").then((x) => x.AdminModule),
+  },
 
 ];

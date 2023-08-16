@@ -13,8 +13,6 @@ export class ButtonComponent {
   @Input() btnDanger?: boolean;
   @Input() transparent!: boolean;
   @Input() btnWaring?: boolean;
-  @Input() btnOutlineBlue?: boolean;
-  @Input() btnOutlineBlack?: boolean;
   @Input() small?: boolean;
   @Input() disabled!: boolean;
   @Input() onlyIcon!: boolean;

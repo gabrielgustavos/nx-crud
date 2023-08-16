@@ -1,1 +1,1 @@
-export * from './lib/services.module';
+export * from './lib/http/auth/index';

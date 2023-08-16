@@ -1,14 +1,40 @@
 <div class="flex justify-center items-center h-full">
-<div class="flex flex-col gap-4">
-  <nx-org-input
-  label="Usuário"
-  placeholder="Digite seu usuário..."
-  icone="fa-solid fa-user"
-  ></nx-org-input>
-  <nx-org-input
-  label="Senha"
-  placeholder="Digite sua senha..."
-  icone="fa-solid fa-key"
-  ></nx-org-input>
-</div>
+  <form class="flex flex-col gap-4 w-22" [formGroup]="form">
+    <nx-org-input
+      label="Usuário"
+      placeholder="Digite seu usuário..."
+      icone="fa-solid fa-user"
+      formControlName="usuario"
+    ></nx-org-input>
+    <nx-org-input
+      label="Senha"
+      placeholder="Digite sua senha..."
+      icone="fa-solid fa-key"
+      formControlName="senha"
+      type="password"
+    ></nx-org-input>
+    <nx-org-button
+      texto="Entrar"
+      [larguraMaxima]="true"
+      (click)="login()"
+      [disabled]="loading"
+    ></nx-org-button>
+
+    <div class="w-30 flex justify-center">
+      <asl-google-signin-button
+      (signUp)="loginWithGoogle()"
+      type="standard"
+      size="large"
+    ></asl-google-signin-button>
+
+    </div>
+
+    <ng-container *ngIf="!loading; else loadingIndicator"> </ng-container>
+    <ng-template #loadingIndicator>
+      <div class="flex items-center">
+        <span class="mr-2">Carregando...</span>
+        <i class="fas fa-spinner fa-spin"></i>
+      </div>
+    </ng-template>
+  </form>
 </div>

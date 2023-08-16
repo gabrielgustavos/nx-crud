@@ -271,15 +271,6 @@
   position: fixed;
 }
 
-.border-top {
-  border: none;
-  border-top: 1px solid $md-grey;
-}
-
-.border-bottom {
-  border: none;
-  border-bottom: 1px solid $md-grey;
-}
 
 .lowercase {
   text-transform: lowercase;
@@ -290,7 +281,3 @@
   text-transform: capitalize;
 }
 
-.dropdown-borda-cinza {
-  border: 1px solid $md-grey !important;
-  border-radius: 6px;
-}

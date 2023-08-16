@@ -1,1 +1,2 @@
-export * from './lib/forms.module';
+export * from './lib/principal.form';
+export * from './lib/auth/index';

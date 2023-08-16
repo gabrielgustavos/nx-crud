@@ -17,6 +17,7 @@
     "paths": {
       "@nx-org/common-ui": ["libs/common-ui/src/index.ts"],
       "@nx-org/components": ["libs/components/src/index.ts"],
+      "@nx-org/data": ["libs/data/src/index.ts"],
       "@nx-org/forms": ["libs/forms/src/index.ts"],
       "@nx-org/interfaces": ["libs/interfaces/src/index.ts"],
       "@nx-org/products": ["libs/products/src/index.ts"],

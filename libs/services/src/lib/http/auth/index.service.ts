@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../config/environment.prod';
@@ -8,12 +7,15 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private interval: any;
   apiBase?: string;
+  private isAuthenticated = false; // Indica se o usuário está autenticado
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.apiBase = `${environment.apiBase}/auth`
+  constructor(private http: HttpClient) {
+    this.apiBase = `${environment.apiBase}auth`
   }
 
   public login(model: LoginModel): Observable<OkModel<any>> {
-    return this.http.post<OkModel<any>>(`${this.apiBase}/auth`, model);
+    return this.http.post<OkModel<any>>(`${this.apiBase}`, model);
   }
+
+
 }
