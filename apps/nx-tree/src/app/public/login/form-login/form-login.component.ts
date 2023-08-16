@@ -41,6 +41,7 @@ export class FormLoginComponent implements OnInit {
           },
           complete: () => {
             this.loading = false;
+            this.router.navigate(['clients'])
           }
         });
     } else {
