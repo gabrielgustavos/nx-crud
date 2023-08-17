@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 import { ClientsRouting } from './clients.routing';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { CdkTableModule } from '@angular/cdk/table';
+import { AuthService } from '@nx-org/services';
 
 @NgModule({
   imports: [RouterModule, CdkTableModule, ClientsRouting],
   exports: [],
   declarations: [ClientsComponent, ClientsListComponent],
-  providers: [],
+  providers: [AuthService],
 })
 export class ClientsModule { }

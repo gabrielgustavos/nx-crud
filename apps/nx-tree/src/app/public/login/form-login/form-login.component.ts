@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertService } from '@nx-org/components';
 import { LoginFormGroup } from '@nx-org/forms';
 import { AuthService } from '@nx-org/services';
-import { take } from 'rxjs';
 import { SocialAuthService, GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 @Component({
@@ -12,7 +11,6 @@ import { SocialAuthService, GoogleLoginProvider } from '@abacritt/angularx-socia
   styleUrls: ['./form-login.component.scss']
 })
 export class FormLoginComponent implements OnInit {
-  loading: boolean;
   form: LoginFormGroup
   constructor(
     private authService: AuthService,
@@ -29,26 +27,24 @@ export class FormLoginComponent implements OnInit {
 
   login() {
     const { value, valid } = this.form;
-
+    const { email, senha } = value;
     if (valid) {
-      this.loading = true;
 
-      this.authService.login(value)
-        .pipe(take(1))
-        .subscribe({
-          next: data => {
-            console.log(data);
-          },
-          complete: () => {
-            this.loading = false;
-            this.router.navigate(['clients'])
-          }
-        });
-    } else {
-      this.alertService.show({
-        title: 'Erro!',
-        subtitle: 'Erro ao logar',
-        status: 'erro'
+      this.authService.checkCredentials(
+        email,
+        senha
+
+      ).subscribe((isValid) => {
+        if (isValid) {
+          this.router.navigate(['clients'])
+        } else {
+          this.alertService.show({
+            title: 'Erro!',
+            subtitle: 'Erro ao logar',
+            status: 'erro'
+          });
+          this.form.markAllAsTouched();
+        }
       });
     }
   }
@@ -64,6 +60,8 @@ export class FormLoginComponent implements OnInit {
       .then(() => this.router.navigate(['clients']))
   }
 
-
+  register() {
+    this.router.navigate(['./register'])
+  }
 
 }

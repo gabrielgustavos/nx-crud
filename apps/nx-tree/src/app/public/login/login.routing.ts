@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login.component';
-import { FormEsqueciSenhaComponent } from './form-esqueci-senha/form-esqueci-senha.component';
 import { FormLoginComponent } from './form-login/form-login.component';
+import { FormRegisterComponent } from './form-register/form-register.component';
 
 const routes: Routes = [
   {
@@ -14,8 +14,8 @@ const routes: Routes = [
         component: FormLoginComponent,
       },
       {
-        path: 'esqueci-senha',
-        component: FormEsqueciSenhaComponent,
+        path: 'register',
+        component: FormRegisterComponent,
       }
     ],
   },

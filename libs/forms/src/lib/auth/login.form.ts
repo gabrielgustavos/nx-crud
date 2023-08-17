@@ -4,7 +4,7 @@ import { PrincipalFormGroup } from "../principal.form";
 const fb = new FormBuilder();
 
 export class LoginFormGroup extends PrincipalFormGroup {
-  get usuario(): FormControl {
+  get email(): FormControl {
     return this.get('email') as FormControl
   }
 
@@ -14,7 +14,7 @@ export class LoginFormGroup extends PrincipalFormGroup {
 
   constructor() {
     super({
-      usuario: fb.control('', [Validators.required, Validators.email]),
+      email: fb.control('', [Validators.required, Validators.email]),
       senha: fb.control('', [Validators.required])
     })
   }

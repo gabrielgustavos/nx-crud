@@ -5,19 +5,19 @@ import { RouterModule } from '@angular/router';
 import { AlertService, ButtonModule, InputModule } from '@nx-org/components';
 import { AuthService } from '@nx-org/services';
 
-import { FormEsqueciSenhaComponent } from './form-esqueci-senha/form-esqueci-senha.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { LoginComponent } from './login.component';
 import { LoginRouting } from './login.routing';
 import { SocialLoginModule, GoogleSigninButtonModule, SocialAuthServiceConfig, GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { FormRegisterComponent } from './form-register/form-register.component';
 
 @NgModule({
   imports: [CommonModule, SocialLoginModule, GoogleSigninButtonModule, RouterModule, ReactiveFormsModule, LoginRouting, ButtonModule, InputModule],
   exports: [],
   declarations: [
     LoginComponent,
-    FormEsqueciSenhaComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    FormRegisterComponent
   ],
   providers: [
     AuthService,

@@ -16,6 +16,7 @@ module.exports = {
       textColor: {
         orange: '#808080',
         blue: '#35B3EB',
+        white: '#ffffff',
       },
       spacing: {
         1: '1rem',

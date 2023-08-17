@@ -19,6 +19,7 @@
       "@nx-org/components": ["libs/components/src/index.ts"],
       "@nx-org/data": ["libs/data/src/index.ts"],
       "@nx-org/forms": ["libs/forms/src/index.ts"],
+      "@nx-org/guards": ["libs/guards/src/index.ts"],
       "@nx-org/interfaces": ["libs/interfaces/src/index.ts"],
       "@nx-org/products": ["libs/products/src/index.ts"],
       "@nx-org/services": ["libs/services/src/index.ts"]
