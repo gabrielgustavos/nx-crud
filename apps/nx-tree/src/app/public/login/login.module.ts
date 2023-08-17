@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { AlertService, ButtonModule, InputModule } from '@nx-org/components';
 import { AuthService } from '@nx-org/services';
 
@@ -12,7 +11,7 @@ import { SocialLoginModule, GoogleSigninButtonModule, SocialAuthServiceConfig, G
 import { FormRegisterComponent } from './form-register/form-register.component';
 
 @NgModule({
-  imports: [CommonModule, SocialLoginModule, GoogleSigninButtonModule, RouterModule, ReactiveFormsModule, LoginRouting, ButtonModule, InputModule],
+  imports: [CommonModule, SocialLoginModule, GoogleSigninButtonModule, ReactiveFormsModule, LoginRouting, ButtonModule, InputModule],
   exports: [],
   declarations: [
     LoginComponent,
