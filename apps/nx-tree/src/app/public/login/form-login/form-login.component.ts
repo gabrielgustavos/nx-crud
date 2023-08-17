@@ -1,9 +1,9 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from '@nx-org/components';
-import { LoginFormGroup } from '@nx-org/forms';
-import { AuthService } from '@nx-org/services';
+import { Router } from '@angular/router';
 import { SocialAuthService, GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { AlertService } from '@nx-org/components';
+import { AuthService } from '@nx-org/services';
+import { LoginFormGroup } from '@nx-org/forms';
 
 @Component({
   selector: 'nx-org-form-login',
@@ -11,57 +11,61 @@ import { SocialAuthService, GoogleLoginProvider } from '@abacritt/angularx-socia
   styleUrls: ['./form-login.component.scss']
 })
 export class FormLoginComponent implements OnInit {
-  form: LoginFormGroup
+  form: LoginFormGroup;
+
   constructor(
     private authService: AuthService,
     private alertService: AlertService,
     private router: Router,
     private socialAuthService: SocialAuthService
   ) {
-    this.form = new LoginFormGroup()
+    this.form = new LoginFormGroup();
   }
 
   ngOnInit() {
-    this.checkGoogleAuthStatus()
+    this.checkGoogleAuthStatus();
   }
 
   login() {
-    const { value, valid } = this.form;
-    const { email, senha } = value;
-    if (valid) {
+    if (this.form.valid) {
+      const { email, senha } = this.form.value;
 
-      this.authService.checkCredentials(
-        email,
-        senha
-
-      ).subscribe((isValid) => {
+      this.authService.checkCredentials(email, senha).subscribe((isValid) => {
         if (isValid) {
-          this.router.navigate(['clients'])
+          this.router.navigate(['clients']);
+        } else {
+          this.showLoginError();
         }
       });
     } else {
-      this.alertService.show({
-        title: 'Erro!',
-        subtitle: 'Erro ao logar',
-        status: 'erro'
-      });
+      this.showLoginError();
       this.form.markAllAsTouched();
     }
   }
 
   checkGoogleAuthStatus() {
     this.socialAuthService.authState.subscribe((user) => {
-      if (user) this.router.navigate(['clients'])
+      if (user) {
+        this.router.navigate(['clients']);
+      }
     });
   }
 
   loginWithGoogle() {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then(() => this.router.navigate(['clients']))
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
+      this.router.navigate(['clients']);
+    });
   }
 
   register() {
-    this.router.navigate(['./register'])
+    this.router.navigate(['./register']);
   }
 
+  private showLoginError() {
+    this.alertService.show({
+      title: 'Erro!',
+      subtitle: 'Erro ao logar',
+      status: 'erro'
+    });
+  }
 }
