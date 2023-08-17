@@ -37,15 +37,15 @@ export class FormLoginComponent implements OnInit {
       ).subscribe((isValid) => {
         if (isValid) {
           this.router.navigate(['clients'])
-        } else {
-          this.alertService.show({
-            title: 'Erro!',
-            subtitle: 'Erro ao logar',
-            status: 'erro'
-          });
-          this.form.markAllAsTouched();
         }
       });
+    } else {
+      this.alertService.show({
+        title: 'Erro!',
+        subtitle: 'Erro ao logar',
+        status: 'erro'
+      });
+      this.form.markAllAsTouched();
     }
   }
 

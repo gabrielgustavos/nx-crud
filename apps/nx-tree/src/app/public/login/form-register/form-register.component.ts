@@ -33,15 +33,15 @@ export class FormRegisterComponent implements OnInit {
       ).subscribe((isValid) => {
         if (isValid) {
           this.router.navigate(['/'])
-        } else {
-          this.alertService.show({
-            title: 'Erro!',
-            subtitle: 'Erro ao logar',
-            status: 'erro'
-          });
-          this.form.markAllAsTouched();
         }
       });
+    } else {
+      this.alertService.show({
+        title: 'Erro!',
+        subtitle: 'Erro ao logar',
+        status: 'erro'
+      });
+      this.form.markAllAsTouched();
     }
   }
 }
