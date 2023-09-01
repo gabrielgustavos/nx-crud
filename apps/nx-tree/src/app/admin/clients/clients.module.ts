@@ -5,9 +5,10 @@ import { ClientsRouting } from './clients.routing';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { ClientService, ExcelService } from '@nx-org/services';
+import { TooltipModule } from '@nx-org/components';
 
 @NgModule({
-  imports: [CdkTableModule, ClientsRouting],
+  imports: [CdkTableModule, TooltipModule, ClientsRouting],
   exports: [],
   declarations: [ClientsComponent, ClientsListComponent],
   providers: [ClientService, ExcelService],

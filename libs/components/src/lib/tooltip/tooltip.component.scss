@@ -1,0 +1,22 @@
+@import "apps/nx-tree/src/assets/scss/utils/variables";
+@import "apps/nx-tree/src/assets/scss/utils/mixins";
+
+
+.tooltip {
+  background: #404040;
+  padding: 6px 15px;
+  @include centralizar;
+  border-radius: 4px;
+  position: relative;
+
+  .tooltip-text {
+    font-weight: 400;
+    font-size: $size-12;
+    color: #FAFAFA;
+  }
+
+  .icon {
+    position: absolute;
+    bottom: -0.85rem;
+  }
+}
