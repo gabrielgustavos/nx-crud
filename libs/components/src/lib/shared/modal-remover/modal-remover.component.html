@@ -1,0 +1,32 @@
+<div class="content-modal fadeIn">
+  <div class="header-modal">
+    <span class="font-500 font-16 cor-primaria">{{ data.titulo }}</span>
+    <i class="fa fa-light fa-times-circle" (click)="fechar()"></i>
+  </div>
+
+  <div class="body-modal">
+    <div class="d-flex align-items-center justify-content-center pb-4">
+      <span class="font-16 font-400 cor-cinza warning-text">{{
+        data.mensagem
+      }}</span>
+    </div>
+
+    <div class="footer-modal">
+      <div class="grid-btn">
+        <nx-org-button
+          className="custom-button-border-primary margin-less"
+          (click)="fechar()"
+        >
+          <i class="fa-light fa-times"></i>
+          Cancelar
+        </nx-org-button>
+        <nx-org-button
+          className="custom-button-primary margin-less"
+          (click)="salvar()"
+        >
+          <i class="fa-light fa-trash-can"></i> Excluir
+        </nx-org-button>
+      </div>
+    </div>
+  </div>
+</div>
