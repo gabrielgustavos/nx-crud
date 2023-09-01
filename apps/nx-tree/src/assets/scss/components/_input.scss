@@ -1,8 +1,18 @@
 @import "../utils/variables";
 
-input.ng-invalid.ng-touched {
-  border: 2px solid red;
+
+.invalid {
+  .form-group {
+      input, textarea {
+          border: 1px solid red !important;
+      }
+  }
+
+  .ng-select-container {
+      border: 1px solid $red !important;
+  }
 }
+
 
 label {
   font-size: 0.875rem;

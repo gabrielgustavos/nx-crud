@@ -1,20 +1,17 @@
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../config/environment.prod';
-import { LoginModel, OkModel } from '@nx-org/interfaces';
+import { LoginModel, ResponseModel } from '@nx-org/interfaces';
 import { Observable, map } from 'rxjs';
 @Injectable()
 export class AuthService {
-  apiBase: string;
+  apiBase = `${environment.apiBase}auth`
   private apiUrl = 'http://localhost:3000/auth';
+  private http = inject(HttpClient)
 
 
-  constructor(private http: HttpClient) {
-    this.apiBase = `${environment.apiBase}auth`
-  }
-
-  public postLogin(model: LoginModel): Observable<OkModel<any>> {
-    return this.http.post<OkModel<any>>(`${this.apiBase}`, model);
+  public postLogin(model: LoginModel): Observable<ResponseModel<LoginModel[]>> {
+    return this.http.post<ResponseModel<LoginModel[]>>(`${this.apiBase}`, model);
   }
 
   public checkCredentials(email: string, senha: string): Observable<boolean> {

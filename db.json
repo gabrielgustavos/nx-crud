@@ -9,6 +9,66 @@
       "email": "teste@hotmail.com",
       "senha": "post123",
       "id": 2
+    },
+    {
+      "email": "lucas.assis@treeinova.com.br",
+      "senha": "123",
+      "id": 3
+    },
+    {
+      "email": "lucas.assis@treeinova.com.br",
+      "senha": "123",
+      "id": 4
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 2,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 3,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 4,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 5,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 6,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 7,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
+    },
+    {
+      "id": 8,
+      "nome": "Gabriel Gustavo",
+      "email": "teste@gmail.com",
+      "telefone": "123456789"
     }
   ]
 }

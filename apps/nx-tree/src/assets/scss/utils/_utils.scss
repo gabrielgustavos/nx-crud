@@ -265,7 +265,6 @@
   border-radius: 50%;
 }
 
-
 .position-relative {
   position: relative;
 }
@@ -274,13 +273,15 @@
   position: fixed;
 }
 
-
 .lowercase {
   text-transform: lowercase;
 }
-
 
 .text-transform-capitalize {
   text-transform: capitalize;
 }
 
+span.invalid {
+  color: $red !important;
+  font-size: .85rem;
+}

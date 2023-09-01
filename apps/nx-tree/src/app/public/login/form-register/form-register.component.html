@@ -1,4 +1,4 @@
-<div class="flex justify-center flex-col items-center h-full">
+<div class="fadeIn flex justify-center flex-col items-center h-full">
   <h1 class="text-2xl font-bold text-white font-700 font-30">Crie sua conta</h1>
 
   <form
@@ -12,21 +12,12 @@
         placeholder="Informe seu e-mail..."
         icone="fa-solid fa-user"
         formControlName="email"
+        [ngClass]="displayFieldCss(form.email)"
+
       ></nx-org-input>
-      <div
-        *ngIf="
-          form.get('email')?.invalid &&
-          (form.get('email')?.dirty || form.get('email')?.touched)
-        "
-        class="text-red-700 text-sm"
-      >
-        <ng-container *ngIf="form.get('email')?.errors?.['required']"
-          >Campo obrigatório</ng-container
-        >
-        <ng-container *ngIf="form.get('email')?.errors?.['email']"
-          >E-mail inválido</ng-container
-        >
-      </div>
+      <span [ngClass]="displayFieldCss(form.email)">{{
+        displayFieldMessage(form.email)
+      }}</span>
     </div>
     <div>
       <nx-org-input
@@ -35,20 +26,16 @@
         icone="fa-solid fa-key"
         formControlName="senha"
         type="password"
+        [ngClass]="displayFieldCss(form.senha)"
+
       ></nx-org-input>
-      <div
-        *ngIf="
-          form.get('senha')?.invalid &&
-          (form.get('senha')?.dirty || form.get('senha')?.touched)
-        "
-        class="text-red-700 text-sm"
-      >
-        <ng-container *ngIf="form.get('senha')?.errors?.['required']"
-          >Campo obrigatório</ng-container
-        >
-      </div>
+      <span [ngClass]="displayFieldCss(form.email)">{{
+        displayFieldMessage(form.email)
+      }}</span>
       <div class="d-flex flex-col mt-2">
-        <nx-org-button texto="Cadastre-se" [larguraMaxima]="true"></nx-org-button>
+        <nx-org-button texto="Cadastre-se" [disabled]="
+          !form.valid
+        " [larguraMaxima]="true" (click)="login()"></nx-org-button>
         <span class="font-13 mt-1 block"
           >Já possui uma conta?
           <a class="text-white cursor-pointer font-700" routerLink="/" >Entre</a></span

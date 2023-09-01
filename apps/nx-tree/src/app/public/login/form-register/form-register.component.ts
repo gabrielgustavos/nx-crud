@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from '@nx-org/components';
+import { AlertService, BaseComponent } from '@nx-org/components';
 import { LoginFormGroup } from '@nx-org/forms';
 import { AuthService } from '@nx-org/services';
 
@@ -10,13 +10,14 @@ import { AuthService } from '@nx-org/services';
   templateUrl: './form-register.component.html',
   styleUrls: ['./form-register.component.scss']
 })
-export class FormRegisterComponent implements OnInit {
+export class FormRegisterComponent extends BaseComponent implements OnInit {
   form: LoginFormGroup
   constructor(
     private authService: AuthService,
     private alertService: AlertService,
     private router: Router,
   ) {
+    super()
     this.form = new LoginFormGroup()
   }
 

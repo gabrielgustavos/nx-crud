@@ -7,14 +7,6 @@ export class BaseComponent implements OnDestroy {
   private subscriptions = new Subscription();
   protected destroyed$ = new Subject<void>();
 
-  currencyOptions: any = {
-    thousands: ".",
-    decimal: ",",
-    prefix: "R$ ",
-    align: "left",
-    precision: 2,
-  };
-
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
     this.destroyed$.next();
@@ -29,10 +21,25 @@ export class BaseComponent implements OnDestroy {
     if (!control)
       return false;
 
-    return control.touched && control.invalid
+    return control.touched && control.invalid;
   }
 
   displayFieldCss(control: AbstractControl) {
-    return this.isFieldValid(control) ? 'invalid' : ''
+    return this.isFieldValid(control) ? 'invalid' : '';
+  }
+
+  displayFieldMessage(control: AbstractControl) {
+    const invalido = this.isFieldValid(control);
+    if (invalido) {
+
+      if (control.hasError('required'))
+        return 'Preencha, campo obrigatório!';
+
+      if (control.hasError('email'))
+        return 'Preencha corretamente o campo de email!';
+
+      return '';
+    }
+    return '';
   }
 }
