@@ -1,8 +1,70 @@
 @import 'apps/nx-tree/src/assets/scss/utils/variables';
 
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: $color-secondary-light3;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: $color-secondary-light3;
+}
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: $color-secondary-light3;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: $color-secondary-light3;
+}
+
+.form-group {
+  label {
+    font-weight: 400;
+    font-size: $size-14;
+    line-height: $size-21;
+  }
+
+  label.required::before {
+    content: '* ';
+    color: $red;
+  }
+
+  input {
+    height: 2.5rem;
+    width: 100%;
+    border: solid $size-1 $color-secondary-light3;
+    border-radius: $size-6;
+    background-color: $white;
+    padding: $size-10;
+    padding-right: 2.5rem;
+    color: $color-primary-dark;
+    font-size: $size-13;
+    font-weight: 400;
+    line-height: $size-21;
+    transition: all 0.3s;
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: inset 0px 0px 0px 1px $color-primary;
+      outline: none;
+    }
+  }
+
+  input[disabled],
+  input[ng-reflect-is-disabled='true'],
+  input[readonly] {
+    background-color: #f0f0f0;
+  }
+
+  .fal {
+    color: $color-primary;
+  }
+}
+
 .icone-senha,
 .icone-user {
   position: absolute;
-  right: 0.8125rem;
-  top: 1rem;
+  right: 0.625em;
+  top: 50%;
+  transform: translateY(-50%);
 }

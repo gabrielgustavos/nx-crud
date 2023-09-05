@@ -12,33 +12,3 @@
       border: 1px solid $red !important;
   }
 }
-
-
-label {
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-  font-weight: 400;
-  pointer-events: none;
-  padding-bottom: 5px;
-  z-index: 1;
-
-  &.input-small {
-      font-size: $size-11;
-    }
-  }
-
-input,
-input[type='date'] {
-  font-size: 0.8125rem;
-  border-radius: 6px;
-  width: 100%;
-  padding: 0.75rem 0.9375rem 0.75rem 0.9375rem;
-  z-index: 0;
-
-  box-sizing: border-box;
-
-  &::-webkit-datetime-edit-fields-wrapper {
-    font-size: 0.8125rem;
-  }
-
-}
