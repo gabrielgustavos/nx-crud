@@ -6,4 +6,5 @@ export * from './lib/header/index'
 export * from './lib/base.component'
 export * from './lib/tooltip/index'
 export * from './lib/modal/index'
+export * from './lib/toggle/index'
 export * from './lib/shared/modal-remover/index';
