@@ -1,8 +1,8 @@
-import { take } from 'rxjs';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AlertService, BaseComponent, DIALOG_DATA, DialogRef } from '@nx-org/components';
 import { ClientsFormGroup } from '@nx-org/forms';
 import { ClientService } from '@nx-org/services';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'nx-org-cad-edit-clients',
@@ -11,6 +11,7 @@ import { ClientService } from '@nx-org/services';
 })
 export class CadEditClientsComponent extends BaseComponent implements OnInit {
   form: ClientsFormGroup = new ClientsFormGroup();
+  titulo = '';
 
   constructor(
     @Inject(DIALOG_DATA) public clientData: any,
@@ -23,6 +24,12 @@ export class CadEditClientsComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     this.form.patchValue(this.clientData);
+    if (this.clientData === null) {
+      this.titulo = "Cadastro de Cliente";
+    } else {
+      this.titulo = "Editar CLiente";
+      this.form.patchValue(this.clientData);
+    }
   }
 
   fechar() {
