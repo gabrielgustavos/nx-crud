@@ -3,6 +3,6 @@ export interface ClientModel {
   nome: string,
   email: string,
   telefone: string,
-  funcao: string,
-  linguagem: string
+  cpf: string,
+  ativo: boolean
 }
