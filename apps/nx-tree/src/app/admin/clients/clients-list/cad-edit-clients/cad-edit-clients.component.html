@@ -1,0 +1,86 @@
+<div class="content-modal fadeIn">
+  <div class="header-modal">
+    <h1 class="title">{{ clientData }}</h1>
+    <i class="fa fa-light fa-times-circle" (click)="fechar()"></i>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form">
+      <div class="grid-form">
+        <div>
+          <nx-org-input
+            [ngClass]="displayFieldCss(form.nome)"
+            formControlName="nome"
+            placeholder="Informe o nome..."
+            label="Nome"
+          ></nx-org-input>
+          <span [ngClass]="displayFieldCss(form.nome)">{{
+            displayFieldMessage(form.nome)
+          }}</span>
+        </div>
+        <div>
+          <nx-org-input
+            [ngClass]="displayFieldCss(form.email)"
+            formControlName="email"
+            placeholder="Informe o e-mail..."
+            label="E-mail"
+          ></nx-org-input>
+          <span [ngClass]="displayFieldCss(form.email)">{{
+            displayFieldMessage(form.email)
+          }}</span>
+        </div>
+        <div>
+          <nx-org-input
+            [ngClass]="displayFieldCss(form.telefone)"
+            formControlName="telefone"
+            placeholder="Informe o telefone..."
+            label="Telefone"
+          ></nx-org-input>
+          <span [ngClass]="displayFieldCss(form.telefone)">{{
+            displayFieldMessage(form.telefone)
+          }}</span>
+        </div>
+        <div>
+          <nx-org-input
+            [ngClass]="displayFieldCss(form.cpf)"
+            formControlName="cpf"
+            placeholder="Informe o cpf..."
+            label="CPF"
+          ></nx-org-input>
+          <span [ngClass]="displayFieldCss(form.cpf)">{{
+            displayFieldMessage(form.cpf)
+          }}</span>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-start pt-4">
+        <label
+          for="status"
+          class="font-poppins font-16 font-400 cor-texto-escuro cursor-pointer"
+          >Status</label
+        >
+        <div class="d-flex align-items-center">
+          <div class="toggle-btn">
+            <nx-org-toggle-button
+              formControlName="ativo"
+              [toggleChecked]="form.ativo ? true : false"
+              [toggleId]="'status'"
+            ></nx-org-toggle-button>
+          </div>
+          <p class="font-poppins font-16 font-400 cor-texto-escuro">Ativo</p>
+        </div>
+      </div>
+    </form>
+    <div>
+      <div class="footer-modal">
+        <div class="save-btn">
+          <nx-org-button
+            texto="Salvar"
+            [iconeEsquerda]="true"
+            icone="fa-light fa-check"
+            (click)="salvar()"
+          ></nx-org-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
