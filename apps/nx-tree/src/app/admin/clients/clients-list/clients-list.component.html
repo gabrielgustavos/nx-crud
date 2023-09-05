@@ -1,6 +1,5 @@
-
 <div #tableContent>
-  <cdk-table  [dataSource]="dataSource">
+  <cdk-table [dataSource]="dataSource">
     <ng-container cdkColumnDef="nome">
       <cdk-header-cell *cdkHeaderCellDef> Nome </cdk-header-cell>
       <cdk-cell *cdkCellDef="let element"> {{ element.nome }} </cdk-cell>
@@ -16,20 +15,25 @@
       <cdk-cell *cdkCellDef="let element"> {{ element.telefone }} </cdk-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="funcao">
-      <cdk-header-cell *cdkHeaderCellDef> Função </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let element"> {{ element.funcao }} </cdk-cell>
+    <ng-container cdkColumnDef="cpf">
+      <cdk-header-cell *cdkHeaderCellDef> CPF </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let element"> {{ element.cpf }} </cdk-cell>
     </ng-container>
 
-    <ng-container cdkColumnDef="linguagem">
-      <cdk-header-cell *cdkHeaderCellDef> Linguagem </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let element"> {{ element.linguagem }} </cdk-cell>
+    <ng-container cdkColumnDef="status">
+      <cdk-header-cell *cdkHeaderCellDef> Status </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let element">
+        <div
+        class="status-border cursor-pointer"
+        [ngClass]="element.ativo ? 'green-status' : 'gray-status'"
+      ></div>
+      </cdk-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="acoes">
       <cdk-header-cell *cdkHeaderCellDef> AÇÕES </cdk-header-cell>
       <cdk-cell *cdkCellDef="let element">
-        <div tooltip="Editar">
+        <div tooltip="Editar" (click)="cadastrarCliente(element)">
           <i class="fa-light fa-pen-to-square fa-lg cursor-pointer"></i>
         </div>
 
@@ -37,8 +41,7 @@
           <i class="fa-light fa-trash-can fa-lg cursor-pointer"></i>
         </div>
         <div (click)="exportTable()" tooltip="Exportar Planilha">
-        <i class="fa-light fa-file-spreadsheet fa-lg cursor-pointer"></i>
-
+          <i class="fa-light fa-file-spreadsheet fa-lg cursor-pointer"></i>
         </div>
       </cdk-cell>
     </ng-container>
