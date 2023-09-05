@@ -16,4 +16,8 @@ export class ClientService {
   public postClient(model: ClientModel): Observable<ResponseModel<ClientModel[]>> {
     return this.http.post<ResponseModel<ClientModel[]>>(`${this.apiBase}`, model);
   }
+
+  public putClient(id: any, model: ClientModel): Observable<ResponseModel<ClientModel[]>> {
+    return this.http.put<ResponseModel<ClientModel[]>>(`${this.apiBase}/${id}`, model);
+  }
 }
