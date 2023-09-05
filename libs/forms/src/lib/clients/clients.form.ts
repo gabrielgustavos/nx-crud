@@ -40,3 +40,16 @@ export class ClientsFormGroup extends TreeFormGroup {
     });
   }
 }
+
+export class ClientsFiltroFormGroup extends TreeFormGroup {
+
+  get termo(): FormControl {
+    return this.get('termo') as FormControl;
+  }
+
+  constructor() {
+    super({
+      termo: fb.control(''),
+    });
+  }
+}
