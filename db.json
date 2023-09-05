@@ -23,30 +23,13 @@
   ],
   "clients": [
     {
-      "nome": "gabs",
-      "email": "123@hotmail.com",
-      "telefone": "1111111",
-      "cpf": "0",
-      "cep": "",
-      "ativo": false,
-      "id": 1
-    },
-    {
-      "nome": "123",
+      "nome": "Teste",
       "email": "teste@gmail.com",
       "telefone": "123456789",
       "cpf": "000.000.000-00",
       "cep": "",
-      "ativo": false,
-      "id": 2
-    },
-    {
-      "id": 3,
-      "nome": "Gabriel Gustavo",
-      "email": "teste@gmail.com",
-      "telefone": "123456789",
-      "cpf": "000.000.000-00",
-      "ativo": true
+      "ativo": true,
+      "id": 3
     },
     {
       "id": 4,
