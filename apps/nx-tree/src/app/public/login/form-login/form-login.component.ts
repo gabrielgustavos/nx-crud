@@ -31,18 +31,25 @@ export class FormLoginComponent extends BaseComponent implements OnInit {
     if (this.form.valid) {
       const { email, senha } = this.form.value;
 
-      this.authService.checkCredentials(email, senha).subscribe((isValid) => {
-        if (isValid) {
-          this.router.navigate(['clients']);
-        } else {
-          this.showLoginError();
-        }
-      });
+      this.authService.checkCredentials(email, senha)
+        .subscribe((isValid) => {
+          isValid ? this.router.navigate(['clients']) : this.handleLoginError();
+        });
     } else {
-      this.showLoginError();
-      this.form.markAllAsTouched();
+      this.handleLoginError();
+      this.markFormControlsAsTouched();
     }
   }
+
+  private handleLoginError() {
+    this.showLoginError();
+    this.markFormControlsAsTouched();
+  }
+
+  private markFormControlsAsTouched() {
+    this.form.markAllAsTouched();
+  }
+
 
   checkGoogleAuthStatus() {
     this.socialAuthService.authState.subscribe((user) => {
