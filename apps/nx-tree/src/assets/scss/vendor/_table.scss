@@ -112,6 +112,10 @@ cdk-footer-cell {
   }
 }
 
+.cdk-column-status {
+  @include centralizar;
+}
+
 .actions {
   @include centralizar;
   height: 100%;

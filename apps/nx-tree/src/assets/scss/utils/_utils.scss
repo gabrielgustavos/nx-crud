@@ -14,7 +14,6 @@
 
 .text-danger {
   color: $red;
-  font-family: 'Poppins', sans-serif;
   font-size: $size-13;
 }
 
@@ -263,6 +262,14 @@
   height: 0.875rem;
   margin: 0 auto;
   border-radius: 50%;
+}
+
+.green-status {
+  background-color: $green;
+}
+
+.gray-status {
+  background-color: $color-secondary-light3;
 }
 
 .position-relative {
