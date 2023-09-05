@@ -1,24 +1,11 @@
 @import '../utils/variables';
+@import '../utils/mixins';
 .content-modal {
-  background-color: $white;
-  border-radius: 0.4rem;
   .header-modal {
     padding: $size-15;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .fa-times-circle {
-      cursor: pointer;
-      color: $color-primary;
-        font-size: $size-25;
-      }
-
-      .title {
-        font-weight: 500;
-        font-size: $size-16;
-        color: $color-primary;
-    }
   }
 
   .body-modal {
@@ -27,7 +14,7 @@
   }
 
   .footer-modal {
-    padding: $size-15 $size-15 $size-15 0;
+    padding: $size-15;
     display: flex;
     justify-content: flex-end;
     border-bottom-left-radius: $radius;
@@ -44,7 +31,18 @@
 }
 
 .overlay-panel {
-  display: flex;
-  flex-direction: column;
+  @include flex-col;
+  background-color: $white;
   border-radius: 0.3rem;
+}
+
+.fa-times-circle {
+  font-size: 1.786rem;
+  color: $blue;
+}
+
+.warning-text {
+  width: 14rem;
+  margin: 0 auto;
+  text-align: center;
 }
