@@ -5,7 +5,7 @@
   </div>
 
   <div class="body-modal">
-    <div class="d-flex align-items-center justify-content-center pb-4">
+    <div class="d-flex align-items-center justify-content-center pb-2">
       <span class="font-16 font-400 cor-cinza warning-text">{{
         data.mensagem
       }}</span>
@@ -16,15 +16,18 @@
         <nx-org-button
           className="custom-button-border-primary margin-less"
           (click)="fechar()"
+          [iconeEsquerda]="true"
+          icone="fa-light fa-times"
+          texto="Cancelar"
         >
-          <i class="fa-light fa-times"></i>
-          Cancelar
         </nx-org-button>
         <nx-org-button
           className="custom-button-primary margin-less"
           (click)="salvar()"
+          [iconeEsquerda]="true"
+          icone="fa-light fa-trash-can"
+          texto="Excluir"
         >
-          <i class="fa-light fa-trash-can"></i> Excluir
         </nx-org-button>
       </div>
     </div>
