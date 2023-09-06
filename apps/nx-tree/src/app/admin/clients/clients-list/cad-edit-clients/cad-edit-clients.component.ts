@@ -37,18 +37,40 @@ export class CadEditClientsComponent extends BaseComponent implements OnInit {
   }
 
   salvar() {
-    if (this.form.valid) {
-      this.clientService.putClient(this.clientData.id, this.form.value)
-        .pipe(take(1))
-        .subscribe({
-          next: () => {
-            this.dialogRef.close(true);
-          },
-          error: (err) => {
-            this.handleSaveError();
-          }
-        });
+    const { valid } = this.form;
+    if (valid && this.clientData === null) {
+      this.addClient()
+    } else {
+      this.editClient()
     }
+  }
+
+  private addClient() {
+    const { value } = this.form;
+
+    this.clientService.postClient(value)
+      .pipe(take(1))
+      .subscribe({
+        next: () => {
+          this.dialogRef.close(true);
+        },
+        error: (err) => {
+          this.handleSaveError();
+        }
+      });
+  }
+
+  private editClient() {
+    this.clientService.putClient(this.clientData.id, this.form.value)
+      .pipe(take(1))
+      .subscribe({
+        next: () => {
+          this.dialogRef.close(true);
+        },
+        error: (err) => {
+          this.handleSaveError();
+        }
+      });
   }
 
 

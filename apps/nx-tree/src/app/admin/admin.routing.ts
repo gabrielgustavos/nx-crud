@@ -4,17 +4,22 @@ import { AdminComponent } from "./admin.component";
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: AdminComponent,
     children: [
       {
-        path: "clients",
+        path: 'clients',
         loadChildren: () =>
-          import("./clients/clients.module").then((m) => m.ClientsModule),
+          import('./clients/clients.module').then((m) => m.ClientsModule),
+      },
+      {
+        path: 'blog',
+        loadChildren: () =>
+          import('./blog/blog.module').then((m) => m.BlogModule),
       },
     ],
-  }
-]
+  },
+];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

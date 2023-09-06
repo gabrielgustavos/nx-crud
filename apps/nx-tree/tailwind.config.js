@@ -13,10 +13,20 @@ module.exports = {
         orange: '#f78b04',
         blue: '#35B3EB',
       },
+      fontSize: {
+        sm: '0.8rem',
+        base: '1rem',
+        xl: '1.25rem',
+        '2xl': '1.563rem',
+        '3xl': '1.953rem',
+        '4xl': '2.441rem',
+        '5xl': '3.052rem',
+      },
       textColor: {
         orange: '#808080',
         blue: '#35B3EB',
         white: '#ffffff',
+        lg_grey: '#6B6B6B',
       },
       spacing: {
         1: '1rem',

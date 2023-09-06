@@ -1,48 +1,72 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
-import { BaseComponent, InputComponent, ModalRemoverComponent, ModalService } from '@nx-org/components';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
+import {
+  BaseComponent,
+  InputComponent,
+  ModalRemoverComponent,
+  ModalService,
+} from '@nx-org/components';
 import { ClientsFiltroFormGroup } from '@nx-org/forms';
 import { ClientModel, ResponseModel } from '@nx-org/interfaces';
 import { ClientService, ExcelService } from '@nx-org/services';
-import { debounceTime, filter, take } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, take } from 'rxjs';
 import { CadEditClientsComponent } from './cad-edit-clients/cad-edit-clients.component';
 
 @Component({
   selector: 'nx-org-clients-list',
   templateUrl: './clients-list.component.html',
-  styleUrls: ['./clients-list.component.scss']
+  styleUrls: ['./clients-list.component.scss'],
 })
-
-
-export class ClientsListComponent extends BaseComponent implements OnInit, AfterViewInit {
-  dataSource: any
+export class ClientsListComponent
+  extends BaseComponent
+  implements OnInit, AfterViewInit
+{
+  dataSource: any;
   @ViewChild('TABLE', { static: true }) table: ElementRef;
-  @ViewChild("inputPesquisa") inputPesquisa: InputComponent;
+  @ViewChild('inputPesquisa') inputPesquisa: InputComponent;
   formFiltro: ClientsFiltroFormGroup;
-  displayedColumns: string[] = ['nome', 'email', 'telefone', 'cpf', 'status', 'acoes'];
-  private clientService = inject(ClientService)
-  private excelService = inject(ExcelService)
-  private modalService = inject(ModalService)
+  displayedColumns: string[] = [
+    'nome',
+    'email',
+    'telefone',
+    'cpf',
+    'status',
+    'acoes',
+  ];
+
+  private clientService = inject(ClientService);
+  private excelService = inject(ExcelService);
+  private modalService = inject(ModalService);
   constructor() {
-    super()
-    this.formFiltro = new ClientsFiltroFormGroup()
+    super();
+    this.formFiltro = new ClientsFiltroFormGroup();
   }
 
   ngOnInit() {
-    this.getClients()
+    this.getClients();
   }
 
   ngAfterViewInit(): void {
-    this.getClients()
-    this.formFiltro.termo.valueChanges.pipe(debounceTime(150))
+    this.getClients();
+    this.formFiltro.termo.valueChanges
+      .pipe(debounceTime(150), distinctUntilChanged())
       .subscribe(() => {
-        this.filterTable()
-      })
+        this.filterTable();
+      });
   }
 
   getClients() {
-    this.clientService.getClient().subscribe((data: ResponseModel<ClientModel[]>) => {
-      this.dataSource = data
-    })
+    this.clientService
+      .getClient()
+      .subscribe((data: ResponseModel<ClientModel[]>) => {
+        this.dataSource = data;
+      });
   }
 
   filterTable() {
@@ -61,18 +85,18 @@ export class ClientsListComponent extends BaseComponent implements OnInit, After
     });
   }
 
-
-
   exportTable() {
     this.excelService.exportAsExcelFile(this.dataSource, 'sample');
   }
-
 
   removerPerfil(id: any) {
     const modal = this.modalService.open(ModalRemoverComponent, {
       width: '31.21rem',
       clickOutside: true,
-      data: { titulo: 'Excluir Pefil de Usuário', mensagem: 'Tem certeza que deseja excluir esse Perfil de Usuário?' }
+      data: {
+        titulo: 'Excluir Pefil de Usuário',
+        mensagem: 'Tem certeza que deseja excluir esse Perfil de Usuário?',
+      },
     });
 
     modal
@@ -81,13 +105,14 @@ export class ClientsListComponent extends BaseComponent implements OnInit, After
         take(1),
         filter((data) => data != false)
       )
-      .subscribe(data => {
+      .subscribe((data) => {
         if (data) {
-          this.clientService.deleteClient(id)
+          this.clientService
+            .deleteClient(id)
             .pipe(take(1))
             .subscribe({
-              next: (() => this.getClients())
-            })
+              next: () => this.getClients(),
+            });
         }
       });
   }
@@ -96,7 +121,7 @@ export class ClientsListComponent extends BaseComponent implements OnInit, After
     const modal = this.modalService.open(CadEditClientsComponent, {
       width: '50rem',
       clickOutside: true,
-      data
+      data,
     });
 
     modal
@@ -105,9 +130,9 @@ export class ClientsListComponent extends BaseComponent implements OnInit, After
         take(1),
         filter((data) => data != false)
       )
-      .subscribe(data => {
+      .subscribe((data) => {
         if (data) {
-          this.getClients()
+          this.getClients();
         }
       });
   }
