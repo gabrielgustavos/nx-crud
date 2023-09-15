@@ -35,6 +35,7 @@
             formControlName="telefone"
             placeholder="Informe o telefone..."
             label="Telefone"
+            mask="tel"
           ></nx-org-input>
           <span [ngClass]="displayFieldCss(form.telefone)">{{
             displayFieldMessage(form.telefone)
@@ -46,6 +47,7 @@
             formControlName="cpf"
             placeholder="Informe o cpf..."
             label="CPF"
+            mask="cpf"
           ></nx-org-input>
           <span [ngClass]="displayFieldCss(form.cpf)">{{
             displayFieldMessage(form.cpf)

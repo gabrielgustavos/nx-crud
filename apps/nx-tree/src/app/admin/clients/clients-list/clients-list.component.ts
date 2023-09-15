@@ -72,7 +72,6 @@ export class ClientsListComponent
   filterTable() {
     const termo = this.formFiltro.termo.value.toLowerCase();
     if (!termo) {
-      // Se o campo de pesquisa estiver vazio, redefina a tabela para os dados originais.
       this.getClients();
       return;
     }
@@ -103,7 +102,7 @@ export class ClientsListComponent
       .afterClosed()
       .pipe(
         take(1),
-        filter((data) => data != false)
+        filter((data) => data !== false)
       )
       .subscribe((data) => {
         if (data) {

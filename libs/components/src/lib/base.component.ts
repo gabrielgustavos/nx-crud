@@ -1,6 +1,6 @@
-import { Directive, OnDestroy } from "@angular/core";
-import { AbstractControl } from "@angular/forms";
-import { Subject, Subscription } from "rxjs";
+import { Directive, OnDestroy } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
+import { Subject, Subscription } from 'rxjs';
 
 @Directive()
 export class BaseComponent implements OnDestroy {
@@ -16,10 +16,8 @@ export class BaseComponent implements OnDestroy {
     this.subscriptions.add(subscription);
   }
 
-
   isFieldValid(control: AbstractControl) {
-    if (!control)
-      return false;
+    if (!control) return false;
 
     return control.touched && control.invalid;
   }
@@ -30,14 +28,18 @@ export class BaseComponent implements OnDestroy {
 
   displayFieldMessage(control: AbstractControl) {
     const invalido = this.isFieldValid(control);
+    console.log(control.errors?.['cpfInvalido']);
     if (invalido) {
-
-      if (control.hasError('required'))
-        return 'Preencha, campo obrigatório!';
+      if (control.hasError('required')) return 'Preencha, campo obrigatório!';
 
       if (control.hasError('email'))
         return 'Preencha corretamente o campo de email!';
 
+      if (control.hasError('invalidPassword'))
+        return 'A senha precisa ter 8 ou mais caracteres!';
+      if (control.hasError('cpfInvalido')) return 'CPF inválido!';
+
+      if (control.hasError('invalidPhoneNumber')) return 'Telefone inválido!';
       return '';
     }
     return '';

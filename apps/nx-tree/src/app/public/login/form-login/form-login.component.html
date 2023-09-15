@@ -32,9 +32,19 @@
       <span [ngClass]="displayFieldCss(form.senha)">{{
         displayFieldMessage(form.senha)
       }}</span>
+      <p class="font-13 mt-1 block">
+        A senha precisa possuir 8 ou mais caracteres
+      </p>
+      <p class="font-13 mt-1 block">
+        Um caractere especial e um caractere maiusculo
+      </p>
     </div>
     <div class="d-flex flex-col">
-      <nx-org-button texto="Entrar" [disabled]="form.invalid" [larguraMaxima]="true"></nx-org-button>
+      <nx-org-button
+        texto="Entrar"
+        [disabled]="form.invalid"
+        [larguraMaxima]="true"
+      ></nx-org-button>
       <span class="font-13 mt-1 block"
         >Não tem uma conta?
         <a class="text-white cursor-pointer font-700" routerLink="register"
