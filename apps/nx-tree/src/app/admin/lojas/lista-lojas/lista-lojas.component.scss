@@ -1,0 +1,24 @@
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.list-container {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  .list-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    border-radius: 12px;
+    transition: all .2s linear;
+    &:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="list-container">
+  <div class="list-content" (click)="abrirDelivery(item.id)" *ngFor="let item of dataSource">
+    <div>
+      <img [src]="item.imagem" alt="" />
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <h3>{{ item.nome }}</h3>
+      <div class="flex items-center gap-1">
+        <span>
+          <i class="fa-solid fa-star" style="color: #fcbb00"></i
+          >{{ item.avaliacao }}
+        </span>
+        <span>{{ item.categoria }}</span>
+        <span>{{ item.distancia }}</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span>
+          {{ item.prazoEntrega }}
+        </span>
+        <span>
+          {{ item.frete }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

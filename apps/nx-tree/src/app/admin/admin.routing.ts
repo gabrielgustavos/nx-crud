@@ -17,6 +17,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./blog/blog.module').then((m) => m.BlogModule),
       },
+      {
+        path: 'lojas',
+        loadChildren: () =>
+          import('./lojas/lojas.module').then((m) => m.LojasModule),
+      },
     ],
   },
 ];

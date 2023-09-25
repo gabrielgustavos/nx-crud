@@ -1,0 +1,13 @@
+<div *ngIf="dataSource">
+  <div *ngFor="let produto of dataSource.produtos">
+   <div>
+    <span>{{produto.nome}}</span>
+    <div class="card">
+    <img class="h-6" [src]="produto.imagem" alt="">
+      <div class="circle-plus">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
