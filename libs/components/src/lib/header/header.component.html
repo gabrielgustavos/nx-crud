@@ -1,21 +1,40 @@
-<div class="header-container">
+<div class="header-container bg-red">
   <div class="w-full p-3 flex items-center justify-between gap-1">
     <div class="flex items-center gap-1">
-        <span>Início</span>
-        <span>Restaurantes</span>
-        <span>Mercados</span>
-        <span>Bebidas</span>
-        <span>Farmácias</span>
-        <span>Pets</span>
-        <span>Shopping</span>
-        <span>Clientes</span>
-        <span>Blog</span>
+      <span class="text-base text-white cursor-pointer" routerLink="/"
+        >Início</span
+      >
+      <span class="text-base text-white cursor-pointer">Restaurantes</span>
+      <span class="text-base text-white cursor-pointer" routerLink="/lojas"
+        >Mercados</span
+      >
+      <span class="text-base text-white cursor-pointer">Bebidas</span>
+      <span class="text-base text-white cursor-pointer">Farmácias</span>
+      <span class="text-base text-white cursor-pointer">Pets</span>
+      <span class="text-base text-white cursor-pointer">Shopping</span>
+      <span class="text-base text-white cursor-pointer" routerLink="/clients"
+        >Clientes</span
+      >
+      <span class="text-base text-white cursor-pointer" routerLink="/blog"
+        >Blog</span
+      >
     </div>
     <div class="flex items-center gap-1">
-      <span>Dabi Business Park</span>
-      <i class="fa-regular fa-right-from-bracket " style="color: #ea1d2c;"></i>
-      <i class="fa-light fa-basket-shopping" style="color: #ea1d2c;"></i>
+      <div class="flex flex-col">
+        <span class="text-base text-white">João Amaral</span>
+        <span class="text-base text-white">joao.amaral@gmail.com</span>
+      </div>
+      <i
+        routerLink="/carrinho"
+        class="fa-solid fa-bag-shopping fa-2xl cursor-pointer"
+        *ngIf="exibirCarrinho"
+        style="color: #ffffff"
+      ></i>
+      <span class="text-base text-white" *ngIf="exibirCarrinho">{{
+        quantidade
+      }}</span>
+      <i class="fa-regular fa-right-from-bracket fa-xl cursor-pointer" style="color: #ffffff"></i>
+
     </div>
   </div>
-
 </div>

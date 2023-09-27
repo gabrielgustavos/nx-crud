@@ -12,6 +12,8 @@ module.exports = {
       backgroundColor: {
         orange: '#f78b04',
         blue: '#35B3EB',
+        red: '#ea1d2c;',
+        white: '#FFFFFF',
       },
       fontSize: {
         sm: '0.8rem',

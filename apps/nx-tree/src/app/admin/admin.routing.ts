@@ -22,6 +22,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./lojas/lojas.module').then((m) => m.LojasModule),
       },
+      {
+        path: 'carrinho',
+        loadChildren: () =>
+          import('./carrinho/carrinho.module').then((m) => m.CarrinhoModule),
+      },
     ],
   },
 ];
